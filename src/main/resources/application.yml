@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: secured-forum-api
+
+
+  datasource:
+    jdbc-url: jdbc:postgresql://localhost:5433/forum_db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/db.changelog-master.xml
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+jwt:
+  secret: myVerySecretKeyForJWTTokenGenerationThatShouldBeLongEnough
+  expiration: 86400 # 24 hours in seconds
